@@ -1,90 +1,861 @@
 <!DOCTYPE html>
-<html>
+<html class='v2' dir='ltr' lang='ja' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progate</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link href='https://www.blogger.com/static/v1/widgets/3566091532-css_bundle_v2.css' rel='stylesheet' type='text/css'/>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+<link href='https://github.com/tattsuast/tattsuast.github.io/blob/114c67c76eaee947e08602620459fca08975b180/details/code.css' rel='stylesheet' type='text/css'/>
+<meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0' name='viewport'/>
+<!-- blogger auto create.start -->
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<meta content='blogger' name='generator'/>
+<link href='https://tattsuast.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<link href='https://tattsuast.blogspot.com/2023/08/javascript1.html' rel='canonical'/>
+<link rel="alternate" type="application/atom+xml" title="たっつー&#65290;のブログ - Atom" href="https://tattsuast.blogspot.com/feeds/posts/default" />
+<link rel="alternate" type="application/rss+xml" title="たっつー&#65290;のブログ - RSS" href="https://tattsuast.blogspot.com/feeds/posts/default?alt=rss" />
+<link rel="service.post" type="application/atom+xml" title="たっつー&#65290;のブログ - Atom" href="https://www.blogger.com/feeds/6267716409328054130/posts/default" />
+
+<link rel="alternate" type="application/atom+xml" title="たっつー&#65290;のブログ - Atom" href="https://tattsuast.blogspot.com/feeds/8020833503583297561/comments/default" />
+<!--Can't find substitution for tag [blog.ieCssRetrofitLinks]-->
+<meta content='https://tattsuast.blogspot.com/2023/08/javascript1.html' property='og:url'/>
+<meta content='JavaScript練習1[ボタンの実装]' property='og:title'/>
+<meta content='  目的  HTMLのボタンとJavascriptの動きを確かめる  内容  実行  実行ボタンを押してください  使用コード     HTML表示          &lt;button id=&quot;btn&quot; onclick=&quot;changeText()&quot;&gt;実行&lt;/button&gt;   &lt;d...' property='og:description'/>
+<!-- blogger auto create.end -->
+<!-- by QooQ.start -->
+<title>JavaScript練習1[ボタンの実装]-たっつー&#65290;のブログ</title>
+<meta content='article' property='og:type'/>
+<meta content='たっつー＊のブログ' property='og:site_name'/>
+<meta content='summary_large_image' name='twitter:card'/>
+<!-- by QooQ.end -->
+<style id='page-skin-1' type='text/css'><!--
+/*-----------------------------------------------------------------------------
+Name:      QooQ
+Version:   2.00
+Author:    くうく堂
+Copyright: くうく堂
+Url:       https://qooq.dododori.com
+Lisense:   カスタマイズ&#12289;再配布は自由です.販売は禁止です
+----------------------------------------------------------------------------- */
+/* 関連記事設定 valueの部分を変更して設定 */
+/*
+<Variable name="mrp.enable" description="関連記事有効化&#65288;true or false&#65289;" type="string" default="true"
+/>
+<Variable name="mrp.title" description="関連記事タイトル" type="string" default="関連記事"
+/>
+*/
+/* こっちはテンプレートデザイナーで設定可 */
+/*
+<Group description="文字の色">
+<Variable name="font.color" description="普通の文字色" type="color"
+default="#454545"/>
+<Variable name="font.link" description="リンクの色" type="color"
+default="#779cff"/>
+<Variable name="font.light" description="うす文字の色" type="color"
+default="#999"/>
+</Group>
+<Group description="ブランドカラー">
+<Variable name="brand.color" description="ブランドカラー" type="color"
+default="#aeddcd"/>
+<Variable name="brand.font" description="ブランドカラー部分の文字色" type="color"
+default="#fff"/>
+<Variable name="brand.subcolor" description="ブランドサブカラー" type="color"
+default="#ff9d76"/>
+<Variable name="brand.subfont" description="ブランドサブカラー部分の文字色" type="color"
+default="#ffffff"/>
+</Group>
+<Group description="背景色など">
+<Variable name="other.topback" description="最背景色" type="color"
+default="#f6f5f5"/>
+<Variable name="other.back" description="コンテンツの背景色" type="color"
+default="#fff"/>
+<Variable name="other.border" description="関連記事などのうすい枠線" type="color"
+default="#eee"/>
+</Group>
+*/
+/****************************************
+もくじ
+１初期化処理-*基本いじらない
+２全体設定
+３ナビゲーション
+４ヘッダー
+５パンくずリスト
+６記事一覧
+７個別記事
+８サイドバー
+９フッター
+10個別アイテム&#65288;タグクラウド&#65289;
+*****************************************/
+/****************************************
+初期化処理-*基本いじらない
+*****************************************/
+abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,main,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section{display:block}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{text-decoration:none}*,:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}html{font-size:62.5%}body{text-align:left;word-wrap:break-word;overflow-wrap:break-word;font-size:1.7rem;font-weight:500;line-height:1.2;letter-spacing:.02em;min-width:960px}.container{margin:auto;width:86%;min-width:960px;max-width:1180px}a{text-decoration:none;color:inherit}img{height:auto;vertical-align:bottom}iframe,img{max-width:100%}.separator a{margin-left:0!important;margin-right:0!important}.separator a,.separator img{display:inline-block}.section{margin:0}.widget ol,.widget ul{padding:0}.widget-content li{list-style-type:none}.widget .post-body ol,.widget .post-body ul{padding-left:2em;padding-right:0}.Header h1{margin-bottom:0}.status-msg-wrap{margin:0}.status-msg-body{text-align:left}.status-msg-border{border:0}.status-msg-bg{background:0}.gsc-search-box{margin-bottom:0!important}table.gsc-search-box{background:#fff;border-radius:18px;max-width:16em}input.gsc-search-button{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 .8em;border:0;outline:0;margin-left:0!important;border-radius:18px;font-weight:700;height:2.5em;font-size:14px;cursor:pointer}.gsc-input{padding-right:0!important}input.gsc-input{-webkit-appearance:none;-moz-appearance:none;appearance:none;padding:0 1em;border:0;outline:0;background:#fff;border-radius:18px;height:2.5em;font-size:14px;width:100%}.cloud-label-widget-content{text-align:left}.label-size{font-size:80%!important;opacity:1!important;display:inline-block}@media(max-width:768px){body{font-size:1.6rem;min-width:0}.container{width:96%;min-width:0}.twitter-timeline{width:770px!important}}@media(max-width:480px){#main.width-100 .container{width:100%}.width-100 #sub-content,.width-100 .breadcrumbs{width:96%;margin-right:auto;margin-left:auto}}
+/****************************************
+全体設定
+*****************************************/
+body{
+font-family: "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", 'メイリオ' , Meiryo , Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+background: #f6f5f5;
+color: #454545;
+}
+/* 2カラム設定 */
+#main-inner{
+display: flex;
+}
+#main-content{
+margin-right: 30px;
+width: calc(100% - 346px);
+flex-shrink: 0;
+}
+#sub-content{
+margin-top: 30px;
+width: 316px;
+flex-shrink: 0;
+}
+@media ( max-width : 768px ) {
+#main-inner{
+display: block;
+}
+#main-content{
+margin-right: 0;
+width: 100%;
+}
+#sub-content{
+width: 100%;
+}
+}
+/****************************************
+ナビゲーション
+*****************************************/
+#navigation{
+padding: .2em 0 .2em 0;
+font-size: 1.5rem;
+background: #ff9d76;
+color: #ffffff;
+}
+#navigation a{
+color: inherit;
+}
+#navigation-button,
+#navigation-label{
+display: none;
+}
+#navigation-content ul{
+display: flex;
+flex-wrap: wrap;
+}
+#navigation-content li{
+margin-right: 1em;
+list-style: none;
+}
+#navigation-content li a{
+font-weight: bold;
+}
+@media ( max-width : 768px ) {
+#navigation-label{
+display: block;
+text-align: center;
+}
+#navigation-content{
+display:none;
+}
+#navigation-button:checked ~ #navigation-content{
+display: block;
+}
+}
+/****************************************
+ヘッダー
+*****************************************/
+#header{
+background: #aeddcd;
+color: #ffffff;
+}
+#header a{
+color: inherit;
+}
+#header-inner{
+padding: 1em 0 1em 0;
+}
+#header-img-wrapper{
+text-align: center;
+}
+#header-img{
+}
+#header-title{
+font-size: 110%;
+font-weight: bold;
+}
+#header-text{
+font-size: 80%;
+font-weight: bold;
+}
+/****************************************
+パンくずリスト
+*****************************************/
+.breadcrumbs{
+line-height: 1;
+font-size: 14px;
+margin-top: 8px;
+background: inherit;
+color: #999999;
+}
+/* 404メッセージ */
+.status-msg-wrap{
+color:  #999999;
+}
+/****************************************
+記事一覧
+*****************************************/
+#list{
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+align-items: flex-start;
+}
+#list a{
+color: inherit;
+}
+.list-item{
+flex-basis: 49.5%;
+margin-top: 8px;
+border-radius: 3px;
+background: #ffffff;
+}
+.list-item-inner{
+padding: .5em;
+border-top: none;
+}
+.list-item-date{
+color: #999999;
+font-size: 80%;
+}
+.list-item-category{
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-end;
+margin-top: .5em;
+font-size: 80%;
+font-weight: bold;
+}
+.list-item-category-item{
+display: block;
+margin-top: .1em;
+margin-left: .1em;
+padding: .3em 1em;
+border-radius: 2px;
+background: #aeddcd;
+color: #ffffff;
+}
+.list-item-img{
+display: block;
+width: 100%;
+}
+.list-item-title{
+margin-top: .5em;
+font-weight: bold;
+}
+@media ( max-width : 480px ) {
+#list{
+display: block;
+}
+}
+/****************************************
+個別記事
+*****************************************/
+#single{
+padding: 2em;
+margin-top: 8px;
+background: #ffffff;
+}
+/* 個別記事見出し */
+#singler-header{
+}
+#single-header-date{
+font-size: 80%;
+margin-top: 1.25em;
+color: #999999;
+}
+#single-header-title{
+font-size: 2.3rem;
+font-weight: bold;
+}
+#single-header .single-share{
+margin-top: 1em;
+}
+#single-header-category{
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-end;
+margin-top: .5em;
+font-size: 80%;
+font-weight: bold;
+}
+.single-header-category-item{
+display: block;
+margin-top: .1em;
+margin-left: .1em;
+padding: .3em 1em;
+border-radius: 2px;
+background: #aeddcd;
+color: #ffffff;
+}
+/* アドセンスのデザイン指定 */
+#ad-1{
+/* アドセンス広告1を使う場合有効にする */
+/* margin-top: 1em; */
+overflow: hidden;
+}
+#ad-2{
+margin-top: 2em;
+overflow: hidden;
+}
+/* 個別記事本文 */
+#single-content{
+margin-top: 1em;
+line-height: 1.8;
+}
+#single-content p{
+margin-top: 1.8em;
+margin-bottom: 1.8em;
+}
+#single-content a{
+color: #779cff;
+}
+#single-content h2{
+font-size: 2.26rem;
+font-weight: bold;
+padding: .8em .5em;
+margin-bottom: 1em;
+margin-top: 2em;
+border-radius: 2px;
+line-height: 1.2;
+background: #aeddcd;
+color: #ffffff;
+}
+#single-content h3{
+font-size: 2.26rem;
+font-weight: bold;
+margin-bottom: 1em;
+margin-top: 2em;
+padding: .5em 0;
+line-height: 1.2;
+border-bottom: solid 2px #aeddcd;
+}
+#single-content h4{
+display: table;
+padding: .5em 2em;
+border-radius: 2px;
+line-height: 1.2;
+background: #aeddcd;
+color: #ffffff;
+}
+#single-content blockquote{
+margin: 1.8rem;
+padding-left: 1.8rem;
+position: relative;
+}
+#single-content blockquote:before{
+content:'\201D';
+font-size: 400%;
+position: absolute;
+top: -1.8rem;
+left: -1.8rem;
+line-height: 1;
+}
+/* 個別記事下部 */
+#single-footer{
+}
+/* SNSボタン */
+#single-footer .single-share{
+margin-top: 4em;
+margin-bottom: 4em;
+}
+.single-share{
+display: flex;
+justify-content: center;
+}
+.single-share-facebook,
+.single-share-twitter,
+.single-share-hatena,
+.single-share-pocket,
+.single-share-line{
+text-align: center;
+font-weight: bold;
+margin: 0 .3em;
+border-radius: 3px;
+display: block;
+padding: .2em 1em;
+color: white;
+}
+.single-share-facebook{
+background: #3B5998;
+}
+.single-share-twitter{
+background: #55acee;
+}
+.single-share-hatena{
+background: #008fde;
+}
+.single-share-pocket{
+background: #ef3f56;
+}
+.single-share-line{
+background: #00B900;
+}
+/* 前後の記事 */
+#blog-pager{
+margin-top: 30px;
+margin-bottom: 0;
+}
+#blog-pager-newer-link,
+#blog-pager-older-link{
+padding: 1em;
+font-weight: bold;
+border-radius: 2em;
+background: #ff9d76;
+color: #ffffff;
+}
+/* コメント */
+#comments{
+margin-top: 2em;
+}
+/* フッターカテゴリ */
+#single-footer-category{
+margin-top: 2em;
+}
+.single-footer-category-item{
+display: table;
+margin: 1em auto 0 auto;
+padding: 1em;
+font-weight: bold;
+border-radius: 3px;
+background: #aeddcd;
+color: #ffffff;
+}
+/* 関連記事 */
+#mrp-wrapper{
+margin-top: 2em;
+}
+#mrp-title{
+font-weight: bold;
+}
+#mrp-content{
+display: flex;
+flex-wrap: wrap;
+}
+.mrp-post{
+position: relative;
+flex-basis: 150px;
+padding: .5em 1em;
+margin: .1em;
+border: solid 1px #eeeeee;
+background: #ffffff;
+}
+.mrp-post-img{
+display: block;
+border-radius: 50%;
+width: 72px;
+height: 72px;
+object-fit: cover;
+margin: 0 auto 0 auto;
+}
+.mrp-post-title{
+margin-top: .5em;
+font-size: 80%;
+font-weight: bold;
+}
+.mrp-post-link{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+@media ( max-width : 480px ) {
+#single{
+padding: 1.5em 1em 1em 1em;
+}
+#single-header-title{
+font-size: 1.9rem;
+}
+#single-content h2,
+#single-content h3{
+font-size: 1.9rem;
+}
+}
+/****************************************
+サイドバー
+*****************************************/
+#sub-content{
+font-size: 1.5rem;
+}
+#sub-content a{
+color: #779cff;
+}
+#sub-content .widget{
+background: #ffffff;
+border-radius: 2px;
+}
+#sub-content .widget-content,
+#sub-content .contact-form-widget{
+padding: .5em;
+}
+#sub-content .widget h2{
+font-size: 1.8rem;
+padding: .6em;
+background: #aeddcd;
+color: #ffffff;
+}
+/****************************************
+フッター
+*****************************************/
+#footer{
+font-size: 1.5rem;
+margin-top: 30px;
+background-color: #ffffff;
+}
+#footer a{
+color: #779cff;
+}
+#footer-inner{
+display: flex;
+}
+#footer-item1,
+#footer-item2,
+#footer-item3{
+flex-basis: 29.3333%;
+margin-left: 2%;
+margin-right: 2%;
+}
+#footer .widget{
+padding-top: 30px;
+}
+#footer .widget:last-child{
+padding-bottom: 30px;
+}
+#copyright{
+text-align: center;
+font-size: 70%;
+margin-top: 1em;
+color: #999999;
+letter-spacing: 0;
+}
+#copyright:before{
+content:"Copyright \0a9 ";
+}
+#copyright:after{
+content:" All Rights Reserved.";
+}
+#designed-by{
+text-align: center;
+font-size: 70%;
+margin-bottom: 1em;
+color: #999999;
+letter-spacing: 0;
+}
+#designed-by:before{
+content:"designed by ";
+}
+.Attribution{
+color: #999999;
+font-size: 70%;
+}
+.Attribution a{
+color: inherit !important;
+}
+@media ( max-width : 768px ) {
+#footer-inner{
+display: block;
+}
+}
+/****************************************
+個別アイテム
+*****************************************/
+/* タグクラウド */
+.label-size{
+padding: .5em;
+border-radius: 3px;
+margin: .25em 0;
+background: #ff9d76;
+color: #ffffff;
+}
+.label-size a{
+color: inherit !important;
+}
+.widget h2{
+font-size: 110%;
+}
+.widget h2,
+.widget .widget-content{
+font-weight: bold;
+}
+.popular-posts a{
+color: #454545 !important;
+}
+.post-summary h3 a{
+color: #454545 !important;
+}
+table.gsc-search-box{
+border: solid 1px #eeeeee;
+}
+input.gsc-search-button{
+background: #ff9d76;
+color: #ffffff;
+}
+input.gsc-input{
+color: #454545;
+}
+@import url("//github.com/tattsuast/html/blob/main/details/code.css");
+--></style>
+<script>
+//<![CDATA[
+//mrp-v1.05
+var relatedAry=new Array;function mrp_input(e){for(var t=0;t<e.feed.entry.length;t++){var r=new Object,n=e.feed.entry[t];r.title=n.title.$t;try{r.thumbnail=n.media$thumbnail.url}catch(e){r.thumbnail="noneImage"}for(var l=0;l<n.link.length;l++)if("alternate"==n.link[l].rel){r.link=n.link[l].href;break}for(var i=0,m=0;m<relatedAry.length;m++)if(r.link==relatedAry[m].link){i=1;break}i||relatedAry.push(r)}}function mrp_output(e){for(var t,r,n,l,a,i=mrpMax<relatedAry.length?mrpMax:relatedAry.length,d=document.getElementById("mrp-content"),m=[],s=0;m.push(s++)<relatedAry.length;);if(m=m.sort(function(){return Math.random()-.5}),relatedAry.length<=1)(a=document.createElement("p")).textContent="関連する記事はありません。",d.appendChild(a);else for(var p=0;p<i;p++)t=relatedAry[m[p]],mrpPosturl!=t.link&&((r=document.createElement("div")).setAttribute("class","mrp-post"),"noneImage"!=t.thumbnail&&((n=document.createElement("img")).setAttribute("src",t.thumbnail),n.setAttribute("class","mrp-post-img"),n.setAttribute("width","72"),n.setAttribute("height","72"),r.appendChild(n)),(a=document.createElement("p")).setAttribute("class","mrp-post-title"),a.textContent=t.title,r.appendChild(a),(l=document.createElement("a")).setAttribute("href",t.link),l.setAttribute("class","mrp-post-link"),r.appendChild(l),d.appendChild(r))}
+//]]>
+</script>
+<link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=6267716409328054130&amp;zx=8cb75d34-fc09-4dc9-bea4-526798061aa0' media='none' onload='if(media!=&#39;all&#39;)media=&#39;all&#39;' rel='stylesheet'/><noscript><link href='https://www.blogger.com/dyn-css/authorization.css?targetBlogID=6267716409328054130&amp;zx=8cb75d34-fc09-4dc9-bea4-526798061aa0' rel='stylesheet'/></noscript>
+<meta name='google-adsense-platform-account' content='ca-host-pub-1556223355139109'/>
+<meta name='google-adsense-platform-domain' content='blogspot.com'/>
+
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
-      </div>
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">レッスン</a>
-        <a href="#">新規登録</a>
-        <a href="#" class="login">ログイン</a>
-      </div>
-    </div>
-  </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
-      <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
-      <div class="btn-wrapper">
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        <p>or</p>
-        <a href="#" class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</a>
-        <a href="#" class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</a>
-      </div>
-    </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>Learn Where to Get Started!</h2>
-      </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p>HTML & CSS</p>
-          </div>
-          <p class="text-contents">ウェブページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p>jQuery</p>
-          </div>
-          <p class="text-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p>Ruby</p>
-          </div>
-          <p class="text-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p>PHP</p>
-          </div>
-          <p class="text-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
-        <h3>Let's learn to code, learn to be creative!</h3>
-      </div>
-      <span class="btn message">さっそく開発する</span>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
-    </div>
-  </footer>
+<div id='navigation'>
+<div class='container'>
+<label for='navigation-button' id='navigation-label'>=</label>
+<input id='navigation-button' type='checkbox'/>
+<div id='navigation-content'>
+<div class='section' id='ナビゲーション'><div class='widget PageList' data-version='1' id='PageList1'>
+<div class='widget-content'>
+<ul>
+</ul>
+<div class='clear'></div>
+</div>
+</div></div>
+</div>
+</div>
+</div>
+<div id='header'>
+<div class='section' id='ヘッダー'><div class='widget Header' data-version='1' id='Header1'>
+<div id='header-inner'>
+<div class='container'>
+<p id='header-title'><a href='https://tattsuast.blogspot.com/'>たっつー&#65290;のブログ</a></p>
+</div>
+</div>
+</div></div>
+</div>
+<div class='width-100' id='main'>
+<div class='container'>
+<div id='main-inner'>
+<div id='main-content'>
+<div class='section' id='記事表示部分'><div class='widget Blog' data-version='1' id='Blog1'>
+<div class='breadcrumbs' itemscope='itemscope' itemtype='http://schema.org/BreadcrumbList'>
+<span itemprop='itemListElement' itemscope='itemscope' itemtype='http://schema.org/ListItem'>
+<a href='https://tattsuast.blogspot.com/' itemprop='item'>
+<span itemprop='name'>ホーム</span>
+</a>
+<meta content='1' itemprop='position'/>
+</span> / 
+  
+<span itemprop='itemListElement' itemscope='itemscope' itemtype='http://schema.org/ListItem'>
+<a href='https://tattsuast.blogspot.com/search/label/HTML%E7%B7%B4%E7%BF%92' itemprop='item'>
+<span itemprop='name'>HTML練習</span>
+</a>
+<meta content='2' itemprop='position'/>
+</span> / 
+          
+</div>
+<div id='single'>
+<div id='single-header'>
+<span class='item-control blog-admin pid-271820085'>
+<a href='https://www.blogger.com/post-edit.g?blogID=6267716409328054130&postID=8020833503583297561&from=pencil' title='投稿を編集'>
+<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+<h1 id='single-header-title'>JavaScript練習1[ボタンの実装]</h1>
+<p id='single-header-date'>2023年8月30日水曜日</p>
+<p id='single-header-category'>
+<a class='single-header-category-item' href='https://tattsuast.blogspot.com/search/label/HTML%E7%B7%B4%E7%BF%92'>HTML練習</a>
+</p>
+<div class='single-share'>
+<a class='single-share-twitter' href='https://twitter.com/intent/tweet?url=https://tattsuast.blogspot.com/2023/08/javascript1.html&text=JavaScript練習1[ボタンの実装]' target='_blank' title='ツイッターでつぶやく'>t</a>
+<a class='single-share-facebook' href='https://www.facebook.com/sharer/sharer.php?u=https://tattsuast.blogspot.com/2023/08/javascript1.html&t=JavaScript練習1[ボタンの実装]' target='_blank' title='フェイスブックでシェア'>f</a>
+<a class='single-share-hatena' href='http://b.hatena.ne.jp/add?mode=confirm&url=https://tattsuast.blogspot.com/2023/08/javascript1.html' title='はてなブックマークに追加'>B!</a>
+<a class='single-share-pocket' href='https://getpocket.com/edit?url=https://tattsuast.blogspot.com/2023/08/javascript1.html&title=JavaScript練習1[ボタンの実装]' target='_blank' title='Pocketに保存'>P</a>
+<a class='single-share-line' href='https://social-plugins.line.me/lineit/share?url=https://tattsuast.blogspot.com/2023/08/javascript1.html' target='_blank' title='LINEで送る'>L</a>
+</div>
+</div>
+<div id='ad-1'>
+</div>
+<div class='post-body' id='single-content'>
+<link rel="stylesheet" href="https://github.com/tattsuast/html/blob/main/details/code.css" type="text/css">
+<style>
+  #text {
+    font-size: 18px;
+    color: blue;
+    margin-top: 20px;
+  }
+
+  #btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #btn:hover {
+    background-color: #2980b9;
+  }
+</style>
+<h2 style="text-align: left;">目的</h2>
+<div><span style="background-color: white;">HTMLのボタンとJavascriptの動きを確かめる</span></div>
+<h2 style="text-align: left;">内容</h2>
+<button id="btn" onclick="changeText()">実行</button>
+<div id="text">実行ボタンを押してください</div>
+<h2 style="text-align: left;">使用コード</h2>
+<details class="details-code">
+  <summary>HTML表示</summary>
+  <pre>
+  <code>
+  &lt;button id="btn" onclick="changeText()"&gt;実行&lt;/button&gt;
+  &lt;div id="text"&gt;実行ボタンを押してください&lt;/div&gt;
+  </code>
+  </pre>
+</details>
+<details class="details-code">
+  <summary>JavaScript表示</summary>
+  <pre>
+  <code>
+  function changeText() {
+  const resultDiv = document.getElementById("text");
+  resultDiv.textContent = "実行ボタンが押されました";
+  resultDiv.style.color = "red";
+  }
+  </code>
+  </pre>
+</details>
+<details class="details-code">
+  <summary>CSS表示</summary>
+  <pre>
+  <code>
+  #text {
+    font-size: 18px;
+    color: blue;
+    margin-top: 20px;
+  }
+
+  #btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  #btn:hover {
+    background-color: #2980b9;
+  }
+  </code>
+  </pre>
+</details>
+<script>
+  function changeText() {
+  const resultDiv = document.getElementById("text");
+  resultDiv.textContent = "実行ボタンが押されました";
+  resultDiv.style.color = "red";
+  }
+</script>
+<div style='clear: both;'></div>
+</div>
+<div id='ad-2'>
+</div>
+<div id='single-footer'>
+<div class='single-share'>
+<a class='single-share-twitter' href='https://twitter.com/intent/tweet?url=https://tattsuast.blogspot.com/2023/08/javascript1.html&text=JavaScript練習1[ボタンの実装]' target='_blank' title='ツイッターでつぶやく'>t</a>
+<a class='single-share-facebook' href='https://www.facebook.com/sharer/sharer.php?u=https://tattsuast.blogspot.com/2023/08/javascript1.html&t=JavaScript練習1[ボタンの実装]' target='_blank' title='フェイスブックでシェア'>f</a>
+<a class='single-share-hatena' href='http://b.hatena.ne.jp/add?mode=confirm&url=https://tattsuast.blogspot.com/2023/08/javascript1.html' title='はてなブックマークに追加'>B!</a>
+<a class='single-share-pocket' href='https://getpocket.com/edit?url=https://tattsuast.blogspot.com/2023/08/javascript1.html&title=JavaScript練習1[ボタンの実装]' target='_blank' title='Pocketに保存'>P</a>
+<a class='single-share-line' href='https://social-plugins.line.me/lineit/share?url=https://tattsuast.blogspot.com/2023/08/javascript1.html' target='_blank' title='LINEで送る'>L</a>
+</div>
+<div class='blog-pager' id='blog-pager'>
+</div>
+<div class='clear'></div>
+<div id='single-footer-category'>
+<a class='single-footer-category-item' href='https://tattsuast.blogspot.com/search/label/HTML%E7%B7%B4%E7%BF%92'>HTML練習カテゴリ</a>
+</div>
+<div id='mrp-wrapper'>
+<p id='mrp-title'>関連記事</p>
+<div id='mrp-content'></div>
+<script src='/feeds/posts/default/-/HTML練習?alt=json-in-script&callback=mrp_input&max-results=10' type='text/javascript'></script>
+<script type='text/javascript'>
+			var mrpPosturl="https://tattsuast.blogspot.com/2023/08/javascript1.html";
+			var mrpMax=6;
+			mrp_output();
+		</script>
+</div>
+<div class='comments' id='comments'>
+<a name='comments'></a>
+<h4>0 件のコメント:</h4>
+<div id='Blog1_comments-block-wrapper'>
+<dl class='avatar-comment-indent' id='comments-block'>
+</dl>
+</div>
+<p class='comment-footer'>
+<div class='comment-form'>
+<a name='comment-form'></a>
+<h4 id='comment-post-message'>コメントを投稿</h4>
+<p>
+</p>
+<a href='https://www.blogger.com/comment/frame/6267716409328054130?po=8020833503583297561&hl=ja' id='comment-editor-src'></a>
+<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410px' id='comment-editor' name='comment-editor' src='' width='100%'></iframe>
+<script src='https://www.blogger.com/static/v1/jsbin/3988816102-comment_from_post_iframe.js' type='text/javascript'></script>
+<script type='text/javascript'>
+      BLOG_CMT_createIframe('https://www.blogger.com/rpc_relay.html');
+    </script>
+</div>
+</p>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+<div id='sub-content'>
+<div class='no-items section' id='サイドバー'></div>
+</div>
+</div>
+</div>
+</div>
+<div id='footer'>
+<div class='container'>
+<div id='footer-inner'>
+<div id='footer-item1'>
+<div class='no-items section' id='フッター1'></div>
+</div>
+<div id='footer-item2'>
+<div class='section' id='フッター2'><div class='widget Attribution' data-version='1' id='Attribution1'>
+<div class='widget-content' style='text-align: center;'>
+Powered by <a href='https://www.blogger.com' target='_blank'>Blogger</a>.
+</div>
+<div class='clear'></div>
+</div></div>
+</div>
+<div id='footer-item3'>
+<div class='no-items section' id='フッター3'></div>
+</div>
+</div>
+</div>
+</div>
+<p id='copyright'>たっつー&#65290;のブログ</p>
+<p id='designed-by'><a href='http://qooq.dododori.com' target='_blank'>QooQ</a></p>
+
+<script type="text/javascript" src="https://www.blogger.com/static/v1/widgets/315554011-widgets.js"></script>
+<script type='text/javascript'>
+window['__wavt'] = 'AOuZoY44slh9ymZCLWLdFZBJLGIHq7KNrw:1693417851974';_WidgetManager._Init('//www.blogger.com/rearrange?blogID\x3d6267716409328054130','//tattsuast.blogspot.com/2023/08/javascript1.html','6267716409328054130');
+_WidgetManager._SetDataContext([{'name': 'blog', 'data': {'blogId': '6267716409328054130', 'title': '\u305f\u3063\u3064\u30fc\uff0a\u306e\u30d6\u30ed\u30b0', 'url': 'https://tattsuast.blogspot.com/2023/08/javascript1.html', 'canonicalUrl': 'https://tattsuast.blogspot.com/2023/08/javascript1.html', 'homepageUrl': 'https://tattsuast.blogspot.com/', 'searchUrl': 'https://tattsuast.blogspot.com/search', 'canonicalHomepageUrl': 'https://tattsuast.blogspot.com/', 'blogspotFaviconUrl': 'https://tattsuast.blogspot.com/favicon.ico', 'bloggerUrl': 'https://www.blogger.com', 'hasCustomDomain': false, 'httpsEnabled': true, 'enabledCommentProfileImages': true, 'gPlusViewType': 'FILTERED_POSTMOD', 'adultContent': false, 'analyticsAccountNumber': '', 'encoding': 'UTF-8', 'locale': 'ja', 'localeUnderscoreDelimited': 'ja', 'languageDirection': 'ltr', 'isPrivate': false, 'isMobile': false, 'isMobileRequest': false, 'mobileClass': '', 'isPrivateBlog': false, 'isDynamicViewsAvailable': true, 'feedLinks': '\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22\u305f\u3063\u3064\u30fc\uff0a\u306e\u30d6\u30ed\u30b0 - Atom\x22 href\x3d\x22https://tattsuast.blogspot.com/feeds/posts/default\x22 /\x3e\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/rss+xml\x22 title\x3d\x22\u305f\u3063\u3064\u30fc\uff0a\u306e\u30d6\u30ed\u30b0 - RSS\x22 href\x3d\x22https://tattsuast.blogspot.com/feeds/posts/default?alt\x3drss\x22 /\x3e\n\x3clink rel\x3d\x22service.post\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22\u305f\u3063\u3064\u30fc\uff0a\u306e\u30d6\u30ed\u30b0 - Atom\x22 href\x3d\x22https://www.blogger.com/feeds/6267716409328054130/posts/default\x22 /\x3e\n\n\x3clink rel\x3d\x22alternate\x22 type\x3d\x22application/atom+xml\x22 title\x3d\x22\u305f\u3063\u3064\u30fc\uff0a\u306e\u30d6\u30ed\u30b0 - Atom\x22 href\x3d\x22https://tattsuast.blogspot.com/feeds/8020833503583297561/comments/default\x22 /\x3e\n', 'meTag': '', 'adsenseHostId': 'ca-host-pub-1556223355139109', 'adsenseHasAds': false, 'adsenseAutoAds': false, 'boqCommentIframeForm': true, 'loginRedirectParam': '', 'view': '', 'dynamicViewsCommentsSrc': '//www.blogblog.com/dynamicviews/4224c15c4e7c9321/js/comments.js', 'dynamicViewsScriptSrc': '//www.blogblog.com/dynamicviews/425e15cf8d130620', 'plusOneApiSrc': 'https://apis.google.com/js/platform.js', 'disableGComments': true, 'interstitialAccepted': false, 'sharing': {'platforms': [{'name': '\u30ea\u30f3\u30af\u3092\u53d6\u5f97', 'key': 'link', 'shareMessage': '\u30ea\u30f3\u30af\u3092\u53d6\u5f97', 'target': ''}, {'name': 'Facebook', 'key': 'facebook', 'shareMessage': 'Facebook \u3067\u5171\u6709', 'target': 'facebook'}, {'name': 'BlogThis!', 'key': 'blogThis', 'shareMessage': 'BlogThis!', 'target': 'blog'}, {'name': 'Twitter', 'key': 'twitter', 'shareMessage': 'Twitter \u3067\u5171\u6709', 'target': 'twitter'}, {'name': 'Pinterest', 'key': 'pinterest', 'shareMessage': 'Pinterest \u3067\u5171\u6709', 'target': 'pinterest'}, {'name': '\u30e1\u30fc\u30eb', 'key': 'email', 'shareMessage': '\u30e1\u30fc\u30eb', 'target': 'email'}], 'disableGooglePlus': true, 'googlePlusShareButtonWidth': 0, 'googlePlusBootstrap': '\x3cscript type\x3d\x22text/javascript\x22\x3ewindow.___gcfg \x3d {\x27lang\x27: \x27ja\x27};\x3c/script\x3e'}, 'hasCustomJumpLinkMessage': false, 'jumpLinkMessage': '\u7d9a\u304d\u3092\u8aad\u3080', 'pageType': 'item', 'postId': '8020833503583297561', 'pageName': 'JavaScript\u7df4\u7fd21[\u30dc\u30bf\u30f3\u306e\u5b9f\u88c5]', 'pageTitle': '\u305f\u3063\u3064\u30fc\uff0a\u306e\u30d6\u30ed\u30b0: JavaScript\u7df4\u7fd21[\u30dc\u30bf\u30f3\u306e\u5b9f\u88c5]'}}, {'name': 'features', 'data': {}}, {'name': 'messages', 'data': {'edit': '\u7de8\u96c6', 'linkCopiedToClipboard': '\u30ea\u30f3\u30af\u3092\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u306b\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f\u3002', 'ok': 'OK', 'postLink': '\u6295\u7a3f\u306e\u30ea\u30f3\u30af'}}, {'name': 'template', 'data': {'name': 'custom', 'localizedName': '\u30ab\u30b9\u30bf\u30e0', 'isResponsive': false, 'isAlternateRendering': false, 'isCustom': true}}, {'name': 'view', 'data': {'classic': {'name': 'classic', 'url': '?view\x3dclassic'}, 'flipcard': {'name': 'flipcard', 'url': '?view\x3dflipcard'}, 'magazine': {'name': 'magazine', 'url': '?view\x3dmagazine'}, 'mosaic': {'name': 'mosaic', 'url': '?view\x3dmosaic'}, 'sidebar': {'name': 'sidebar', 'url': '?view\x3dsidebar'}, 'snapshot': {'name': 'snapshot', 'url': '?view\x3dsnapshot'}, 'timeslide': {'name': 'timeslide', 'url': '?view\x3dtimeslide'}, 'isMobile': false, 'title': 'JavaScript\u7df4\u7fd21[\u30dc\u30bf\u30f3\u306e\u5b9f\u88c5]', 'description': '  \u76ee\u7684  HTML\u306e\u30dc\u30bf\u30f3\u3068Javascript\u306e\u52d5\u304d\u3092\u78ba\u304b\u3081\u308b  \u5185\u5bb9  \u5b9f\u884c  \u5b9f\u884c\u30dc\u30bf\u30f3\u3092\u62bc\u3057\u3066\u304f\u3060\u3055\u3044  \u4f7f\u7528\u30b3\u30fc\u30c9     HTML\u8868\u793a          \x3cbutton id\x3d\x22btn\x22 onclick\x3d\x22changeText()\x22\x3e\u5b9f\u884c\x3c/button\x3e   \x3cd...', 'url': 'https://tattsuast.blogspot.com/2023/08/javascript1.html', 'type': 'item', 'isSingleItem': true, 'isMultipleItems': false, 'isError': false, 'isPage': false, 'isPost': true, 'isHomepage': false, 'isArchive': false, 'isLabelSearch': false, 'postId': 8020833503583297561}}]);
+_WidgetManager._RegisterWidget('_PageListView', new _WidgetInfo('PageList1', '\u30ca\u30d3\u30b2\u30fc\u30b7\u30e7\u30f3', document.getElementById('PageList1'), {'title': '\u30da\u30fc\u30b8', 'links': [], 'mobile': false, 'showPlaceholder': false, 'hasCurrentPage': false}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_HeaderView', new _WidgetInfo('Header1', '\u30d8\u30c3\u30c0\u30fc', document.getElementById('Header1'), {}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_BlogView', new _WidgetInfo('Blog1', '\u8a18\u4e8b\u8868\u793a\u90e8\u5206', document.getElementById('Blog1'), {'cmtInteractionsEnabled': false, 'lightboxEnabled': true, 'lightboxModuleUrl': 'https://www.blogger.com/static/v1/jsbin/323396206-lbx__ja.js', 'lightboxCssUrl': 'https://www.blogger.com/static/v1/v-css/3268905543-lightbox_bundle.css'}, 'displayModeFull'));
+_WidgetManager._RegisterWidget('_AttributionView', new _WidgetInfo('Attribution1', '\u30d5\u30c3\u30bf\u30fc2', document.getElementById('Attribution1'), {}, 'displayModeFull'));
+</script>
 </body>
 </html>
