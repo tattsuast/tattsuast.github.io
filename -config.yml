@@ -1,0 +1,11 @@
+#theme: jekyll-theme-cayman
+#theme: jekyll-theme-midnight
+#theme: jekyll-theme-slate
+theme: jekyll-theme-minimal
+
+title: "@stkdevまとめ"
+description: "自称ハイブリッド雑用係系エンジニア。最近はエンジニアとすら名乗れなくなってきているらしい。"
+logo: img/tacoin.png
+
+twitter:
+  username: stkdev
