@@ -1,9 +1,0 @@
-var dhtml = document.getElementById("d-html");
-var dhtml2 = document.getElementById("d-html2");
-dhtml2.textContent = dhtml.innerHTML;
-var djs = document.getElementById("d-js");
-var djs2 = document.getElementById("d-js2");
-djs2.innerHTML = djs.innerHTML;
-var dcss = document.getElementById("d-css");
-var dcss2 = document.getElementById("d-css2");
-dcss2.innerHTML = dcss.innerHTML;
