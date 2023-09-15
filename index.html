@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <title>ブログ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            background-color: #fff;
+            height: 3px;
+            width: 25px;
+            margin: 3px 0;
+        }
+        
+        .menu {
+            list-style: none;
+            display: flex;
+        }
+        
+        .menu li {
+            margin-right: 20px;
+        }
+        
+        .menu li:last-child {
+            margin-right: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                right: 20px;
+            }
+        
+            .menu.active {
+                display: flex;
+            }
+        
+            .menu-toggle {
+                display: flex;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                z-index: 1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="menu">
+                <li><a href="#">ホーム</a></li>
+                <li><a href="#">記事1</a></li>
+                <li><a href="#">記事2</a></li>
+                <li><a href="#">記事3</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- ここにブログのコンテンツを追加 -->
+
+    <!--<script src="script.js"></script>-->
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".menu");
+
+menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});
+
+// スクロール追従するメニューボタンの設定
+window.addEventListener("scroll", () => {
+    if (window.innerWidth <= 768) {
+        menuToggle.style.top = window.scrollY + 20 + "px";
+    }
+});
+
+  </script>
+</body>
+</html>
