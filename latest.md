@@ -1,0 +1,35 @@
+---
+layout: default
+title: 最新記事
+---
+<div class="container">
+
+<div class="row">
+  <div class="col-sm-3 hidden-xs">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/71rCJ6ErJML._UX250_.jpg"
+     alt="Seki's photo" width="100" height="120">
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <h1>{{ site.title }}</h1>
+  </div>
+  <div class="col-sm-3 hidden-xs">
+    <img src="https://pbs.twimg.com/profile_images/2986696034/dddd38f9ce3271c4c0627e94e179659e_400x400.jpeg"
+      alt="image" width="120" height="120">
+  </div>
+</div>
+
+  {% for post in paginator.posts %}
+    <h2><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+    <p>{{ post.excerpt | strip_html }}</p>
+  {% endfor %}
+</div>
+
+  <div class="text-center">
+    {% if paginator.previous_page %}
+      <a class="btn btn-default" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">Previous</a>
+      {% endif %}
+      <span>{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="btn btn-default" href="{{ site.baseurl }}{{ paginator.next_page_path }}">Next</a>
+    {% endif %}
+  </div>

@@ -11,6 +11,27 @@ abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,d
 #main-inner{
     display: flex;
 }
+#main-content{
+    margin-right: 30px;
+    width: calc(100% - 346px);
+    flex-shrink: 0;
+    }
+#sub-content{
+    margin-top: 30px;
+    width: 316px;
+    flex-shrink: 0;
+}
+@media ( max-width : 768px ) {
+    #main-inner{
+    display: block;
+}
+#main-content{
+    margin-right: 0;
+    width: 100%;
+}
+#sub-content{
+    width: 100%;
+}
 
 /**/
 p{
