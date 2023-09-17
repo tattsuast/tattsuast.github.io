@@ -117,13 +117,14 @@ nav li:hover .sub-menu li{
 #open{display:none}
 
 /* 外側 */
-
-/* メイン */
-#article{
+.content{
     padding: 2em;
     margin-top: 8px;
     background: #ffffff;
 }
+
+/* メイン */
+
 
 /* サブ */
 
