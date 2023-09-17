@@ -24,11 +24,13 @@ body{
     margin-right: 30px;
     width: calc(100% - 346px);
     flex-shrink: 0;
+    background: #ffffff;
     }
 #sub-content{
     margin-top: 30px;
     width: 316px;
     flex-shrink: 0;
+    background: #ffffff;
 }
 @media ( max-width : 768px ) {
     #main-inner{
@@ -117,17 +119,12 @@ nav li:hover .sub-menu li{
 #open{display:none}
 
 /* 外側 */
-.content{
-    padding: 2em;
-    margin-top: 15px;
-    margin-left: 30px;
-    background: #ffffff;
-}
+
 
 /* メイン */
 
-
 /* サブ */
+
 
 /* スマホ、タブレット用横幅480pxで切り替え */
 @media screen and (max-width: 480px){
