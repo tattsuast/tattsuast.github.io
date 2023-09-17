@@ -1,12 +1,12 @@
 # Site settings
-title: TSA
+title:TSA
 #description: Katsutoshi Seki's personal note.
 # author: <a href="http://wwws.amazon.co.jp/-/e/B00ADGVC1W">関 勝寿</a>
 #author: <a href="https://tattsuast.github.io/toyo/">たっつー＊</a>
 #author-en: <a href="https://scholar.google.com/citations?user=Gs_ABawAAAAJ">Katsutoshi Seki</a>
 baseurl: "" 
 url: "https://tattsuast.github.io" 
-#repository: "https://github.com/sekika/sekika.github.io"
+repository:"https://github.com/tattsuast/tattsuast.github.io"
 #popular: "/2022/12/27/popular2022/"
 
 # Versions of JavaScript
