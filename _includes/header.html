@@ -1,7 +1,14 @@
 <header>
-    <div>
+    <div id="header-inner">
         <!-- サイト名 -->
-        <p>{{ site.title }}</p>
-        <p></p>
+        <p id="header-title"><a href="{{ site.baseurl }}">{{ site.title }}</a></p>
+        <p id="header-text">様々なコンテンツに挑戦する。</p>
+    </div>
+    <div id="open"><span id="open-icon"></span></div>
+    <div id="menu">
+        <nav>
+            <!-- メニュー -->
+            {% include menu.html %}
+        </nav>
     </div>
 </header>
