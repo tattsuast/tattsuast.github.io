@@ -11,11 +11,7 @@ title: TSA
 
 # Versions of JavaScript
 # Last update on 2023-09-17
-bootstrap-version: "5.3.0" # Bootstrap http://getbootstrap.com/getting-started/
 jquery-version: "3.7.1" # jQuery https://jquery.com/download/
-katex-version: "0.16.4" # KaTeX https://github.com/Khan/KaTeX/releases
-pyodide-version: "0.22.0" # Pyodide https://pyodide.org/en/stable/project/changelog.html
-plotly-version: "2.16.1" # Plotly https://plotly.com/javascript/getting-started/
 
 # Build settings
 markdown: kramdown
