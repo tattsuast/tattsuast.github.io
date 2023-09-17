@@ -1,0 +1,41 @@
+# Site settings
+title: TSA
+#description: Katsutoshi Seki's personal note.
+# author: <a href="http://wwws.amazon.co.jp/-/e/B00ADGVC1W">関 勝寿</a>
+#author: <a href="https://tattsuast.github.io/toyo/">たっつー＊</a>
+#author-en: <a href="https://scholar.google.com/citations?user=Gs_ABawAAAAJ">Katsutoshi Seki</a>
+#baseurl: "" 
+#url: "https://sekika.github.io" 
+#repository: "https://github.com/sekika/sekika.github.io"
+#popular: "/2022/12/27/popular2022/"
+
+# Versions of JavaScript
+# Last update on 2023-09-17
+bootstrap-version: "5.3.0" # Bootstrap http://getbootstrap.com/getting-started/
+jquery-version: "3.7.1" # jQuery https://jquery.com/download/
+katex-version: "0.16.4" # KaTeX https://github.com/Khan/KaTeX/releases
+pyodide-version: "0.22.0" # Pyodide https://pyodide.org/en/stable/project/changelog.html
+plotly-version: "2.16.1" # Plotly https://plotly.com/javascript/getting-started/
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-feed
+whitelist:
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-feed
+
+# pagination
+paginate: 10
+pagenate_path: "page:num"
+
+# highlighter: "rouge"
+
+exclude: [vendor]
