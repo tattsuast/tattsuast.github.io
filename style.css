@@ -11,3 +11,8 @@ abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,d
 #main-inner{
     display: flex;
 }
+
+/**/
+p{
+    color: black;
+}
