@@ -4,7 +4,9 @@ layout: default
 
 <div id="main-inner">
     <div id="main-content">
-        {{ content }}
+        <div id="outside"></div>
+        <div id="headline">{% include headline %}</div>
+        <div id="article">{{ content }}</div>
     </div>
     <div id="sub-content">
 

@@ -116,8 +116,14 @@ nav li:hover .sub-menu li{
 }
 #open{display:none}
 
-/* メイン */
+/* 外側 */
 
+/* メイン */
+#article{
+    padding: 2em;
+    margin-top: 8px;
+    background: #ffffff;
+}
 
 /* サブ */
 
