@@ -5,8 +5,8 @@ abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,d
 :root{
     --main-color: #aeddcd;
     --main-font: #ffffff;
-    --sub-color: #000000;
-    --sub-font: #000000;
+    --sub-color: #ff9d76;
+    --sub-font: #ffffff;
 }
 
 /* 全体設定 */
@@ -49,14 +49,14 @@ header{
     color: var(--main-font);
 }
 #header-inner{
-    padding: 1em 0 1em 0;
+    padding: 0.7em 0 0.7em 1em;
     width:100%
 }
 header a{
     color: inherit;
 }
 #header-title{
-    font-size: 130%;
+    font-size: 150%;
     font-weight: bold;
 }
 #header-text{
@@ -66,10 +66,8 @@ header a{
 
 /* メニュー */
 #menu{
-    background:#000;
+    background:var(--sub-color);
     font-size:1.2em;
-    line-height:1;
-    margin:10px 0 0;
     text-align:center;
     bottom:0;left:0;
     width:100%
@@ -77,7 +75,7 @@ header a{
 nav li{
     display:inline-block; /* 横並び */
     position:relative; /* サブメニュー表示位置の基準 */
-    height:2em;line-height:2em; /* メニュー高さ */
+    height:1.2em;line-height:1.5em; /* メニュー高さ */
 }
 nav li a,nav li span{
     color:#fff;
