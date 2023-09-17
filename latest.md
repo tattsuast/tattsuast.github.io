@@ -1,6 +1,7 @@
 ---
 layout: default
 title: 最新記事
+permalink: /latest/
 ---
 <div class="container">
 
