@@ -45,7 +45,7 @@ body{
         width: 100%;
     }
     #sub-content{
-        width: 100%;
+        display: none;
     }
 }
 
@@ -136,9 +136,6 @@ nav li:hover .sub-menu li{
     body{
         font-family:Verdana,Roboto,'游ゴシック','Yu Gothic','游ゴシック体','YuGothic','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック','MS PGothic',sans-serif;
         font-size:1.3em
-    }
-    #sub-content{
-        display: none;
     }
     header{
         border-bottom:5px solid #000;
