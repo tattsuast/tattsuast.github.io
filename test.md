@@ -1,5 +1,5 @@
 ---
-layout: test
+test: test
 title:  "Test"
 tags:
 - test
