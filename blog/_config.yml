@@ -1,0 +1,35 @@
+# Site settings
+title: TAG"たっつー＊の成果の庭"
+description: 様々なコンテンツに挑戦する
+#author: <a href="https://tattsuast.github.io/toyo/">たっつー＊</a>
+baseurl: "" 
+url: "https://tattsuast.github.io" 
+repository: "https://github.com/tattsuast/tattsuast.github.io/tree/main/blog"
+#popular: "/2022/12/27/popular2022/"
+
+# Versions of JavaScript
+# Last update on 2023-09-17
+jquery-version: "3.7.0" # jQuery https://jquery.com/download/
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-feed
+whitelist:
+  - jekyll-coffeescript
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-feed
+
+# pagination
+paginate: 10
+pagenate_path: "page:num"
+
+# highlighter: "rouge"
+
+exclude: [vendor]
