@@ -5,7 +5,6 @@ description: 様々なコンテンツに挑戦する
 baseurl: "" 
 url: "https://tattsuast.github.io" 
 repository: "https://github.com/tattsuast/tattsuast.github.io/tree/main/blog"
-#popular: "/2022/12/27/popular2022/"
 
 # Versions of JavaScript
 # Last update on 2023-09-17
@@ -14,6 +13,7 @@ jquery-version: "3.7.0" # jQuery https://jquery.com/download/
 # Build settings
 markdown: kramdown
 permalink: pretty
+source: blog
 
 plugins:
   - jekyll-coffeescript
