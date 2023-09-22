@@ -1,0 +1,14 @@
+<h1 id="headline-title">{{ page.title }}</h1>
+<p id="headline-date">公開日：{{ page.date | date: "%Y年%-m月%-d日" }}{% if page.update %} - <a href="{{ site.repository }}/commits/master/{{ page.path }}">最終更新日</a>：{{ page.update | date: "%Y年%-m月%-d日" }}{% endif %}</p>
+<p id="headline-category"></p>
+<p id="headline-tag">
+{% capture tags %}
+{% for tag in page.tags %}
+  {{ tag }}
+{% endfor %}
+{% endcapture %}
+{% assign eachtag = tags | split:' ' %}
+{% for tag in eachtag %}
+  <a href="/tags/{{ tag }}/index.html">{{ tag }}</a>
+{% endfor %}
+</p>
