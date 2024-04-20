@@ -1,0 +1,20 @@
+# Site settings
+title: たっつー＊倉庫
+description: 成果物を詰め込む場所
+baseurl: "" # the subpath of your site, e.g. /blog/ or empty.
+url: "https://tattsuast.github.io" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+#theme: jekyll-theme-minimal # You can change the theme here
+permalink: pretty
+
+# Versions of JavaScript
+# Last update on 2023-09-17
+jquery-version: "3.7.0" # jQuery https://jquery.com/download/
+bootstrap-version: "5.3.0" # bootstrap https://getbootstrap.jp/
+
+
+
+
+
