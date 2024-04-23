@@ -10,9 +10,15 @@
                 </div>
             </div>
         </article>
+        {% include footer.html %}
         <div id="add">
             <div class="pagetop"><a href="#" id="pagetop-a"></a></div>
         </div>
-        {% include footer.html %}
+        <script src="/assets/js/default.js"></script>
+        {% if pagejs_files %}
+        {% for js_file in page.js_files %}
+        <script src="{{ '/assets/js/' | append: js_file | append: '.js' | relative_url }}" rel="stylesheet"></script>
+        {% endfor %}
+        {% endif %}
     </body>
 </html>
