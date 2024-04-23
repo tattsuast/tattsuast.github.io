@@ -4,8 +4,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="keywords" content="{% capture tags %}{% for tag in page.tags %}{{ tag | capitalize }}, {% endfor %}{% endcapture %}{{ tags }}">
+    <title>{{ page.title }}</title>
+    <meta name="description" content="{{ page.description }}" />
+    <link rel="icon" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
 
     <!-- 外部ライブラリ -->
+    <!-- reset css load -->
+    <link rel='stylesheet' href='https://unpkg.com/ress/dist/ress.min.css'>
     <!-- jquery load -->
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <!-- bootstrap load -->
@@ -24,15 +30,8 @@
     <!--
     <link href="{{ /data/detyle.css | prepend: site.baseurl }}" rel="stylesheet"/>
     <link href="{{ /data/deco.css | prepend: site.baseurl }}" rel="stylesheet"/>
-    -->
     <link href="{{ '/assets/css/style.css' | relative_url }}" rel="stylesheet"/>
-
-
-    <!-- site custom-->
-    <title>{{ page.title }}</title>
-    <meta name="description" content="{{ page.description }}" />
-    <link rel="icon" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
+    -->
 
     <!-- javascript load -->
 </head>
