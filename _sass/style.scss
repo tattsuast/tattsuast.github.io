@@ -1,0 +1,176 @@
+$site-color: #64c6b4;
+$site-sub-color: rgb(255, 183, 0);
+$font-color: black;
+$font-color-sub: #ffffff;
+
+body{
+    font-family: "游ゴシック体", "Yu Gothic", "YuGothic", "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", 'メイリオ' , Meiryo , Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    
+}
+a{color: inherit;text-decoration: none;}
+.h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2;color:$font-color}
+.h1,h1{font-size:calc(1.375rem + 1.5vw)}@media (min-width:1200px){.h1,h1{font-size:2.5rem}}
+.h2,h2{font-size:calc(1.325rem + .9vw)}@media (min-width:1200px){.h2,h2{font-size:2rem}}
+.h3,h3{font-size:calc(1.3rem + .6vw)} @media (min-width:1200px){.h3,h3{font-size:1.75rem}}
+.h4,h4{font-size:calc(1.275rem + .3vw)}@media (min-width:1200px){.h4,h4{font-size:1.5rem}}
+.h5,h5{font-size:calc(1.25rem + .2vw)}@media (min-width:1200px){.h4,h4{font-size:1.5rem}}
+.h6,h6{font-size:calc(1rem + .1vw)}@media (min-width:1200px){.h4,h4{font-size:1.5rem}}
+p{margin-top:0;margin-bottom:1rem}
+section{margin-top: 10px;}
+.no-style-li{list-style: none;}
+.a-off{pointer-events: none;}
+header{
+    width: 100%;
+    background-color: $site-color;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    
+    .site-name{
+        text-align: center;
+        font-weight: bold;
+        color: $font-color-sub;
+    }
+}
+article{
+    //height: 70vh;//test
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: max(50px,calc(50px + (100vw - 700px) / 10));
+    padding-right: max(50px,calc(50px + (100vw - 700px) / 10));
+    background-color: #f2f1e6;
+    @media screen and (max-width: 700px) {
+        padding-top: max(0px,calc(30px - (700px - 100vw) / 12));
+        padding-bottom: max(0px,calc(30px - (700px - 100vw) / 12));
+        padding-left: max(0px,calc(50px - (700px - 100vw) / 2));
+        padding-right: max(0px,calc(50px - (700px - 100vw) / 2));
+    }
+    .content{
+        //height: 70vh;//test
+        background-color: #ffffff;
+        padding-top: 30px;
+        padding-bottom: 10px;
+        padding-left: 30px;
+        padding-right: 30px;
+        @media screen and (max-width: 500px) {
+            padding-top: max(10px,calc(30px - (500px - 100vw) / 10));
+            padding-left: max(8px,calc(30px - (500px - 100vw) / 8));
+            padding-right: max(8px,calc(30px - (500px - 100vw) / 8));
+        }
+        
+        .sec-h1{
+            border-bottom: black 1.5px solid;
+            h1{position: relative;margin-bottom: 10px;}
+            h1:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 7px;
+                background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+                background: repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+            }
+        }
+        .sec-h2{
+            h2 {
+                position: relative;/*相対位置*/
+                padding: 0em 0.5em 0em 1.5em;/*アイコン分のスペース*/
+                line-height: 1.4;/*行高*/
+                color: #ff6a6a;/*文字色*/
+                //border-top: dotted 1px gray;
+                //border-bottom: dotted 1px gray;
+                //background: #fffff4;
+            }
+                
+            h2:before {
+                font-family: "FontAwesome";/*忘れずに*/
+                content: "\f138";/*アイコンのユニコード*/
+                font-weight: 900;
+                position: absolute;/*絶対位置*/
+                font-size: 1em;/*サイズ*/
+                left: 0.25em;/*アイコンの位置*/
+                //top: 0.5em;/*アイコンの位置*/
+                color: #ff6a6a; /*アイコン色*/
+            }
+            .link-list{
+                li{
+                    width: 240px;
+                    display: inline-block;
+                    border:dashed 1.5px #FFA79F;
+                    margin-bottom: 0.3em;
+                }
+                
+                .a-on{
+                    position: relative;
+                    margin-left: 1.8em;
+                    
+                }
+                .a-on:before{
+                    font-family: "FontAwesome";/*忘れずに*/
+                    content: "\f00c";/*アイコンのユニコード*/
+                    font-weight: 900;
+                    position: absolute;/*絶対位置*/
+                    font-size: 1em;/*サイズ*/
+                    left: -1.3em;/*アイコンの位置*/
+                    top: 0.1em;/*アイコンの位置*/
+                    color: blue; /*アイコン色*/
+                }
+                .a-off{
+                    position: relative;
+                    margin-left: 1.8em;
+                }
+                .a-off:before{
+                    font-family: "FontAwesome";/*忘れずに*/
+                    content: "\f00d";/*アイコンのユニコード*/
+                    font-weight: 900;
+                    position: absolute;/*絶対位置*/
+                    font-size: 1em;/*サイズ*/
+                    left: -1.3em;/*アイコンの位置*/
+                    top: 0.1em;/*アイコンの位置*/
+                    color: #ff6a6a; /*アイコン色*/
+                }
+            }
+        }
+    }
+}
+footer{
+    //height: 30vh;//test
+    background-color: $site-color;
+    color: $font-color-sub;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    @media screen and (max-width: 500px) {
+        padding-top: max(10px,calc(30px - (500px - 100vw) / 10));
+        padding-left: max(15px,calc(30px - (500px - 100vw) / 10));
+        padding-right: max(15px,calc(30px - (500px - 100vw) / 10));
+    }
+}
+#add{
+    #pagetop-a{
+        
+        background-color: white;
+        position: fixed;
+        color:black;
+        text-align:center;
+        display: block;
+        border-radius:50%;
+        width: 40px;
+        height: 40px;
+        border: green 2px solid;
+    }
+    
+    #pagetop-a:before {
+        font-family: "FontAwesome";
+        content: "\f062";
+        font-size:25px;
+        font-weight: bold;
+        position:absolute;
+        left:0px;top:5px;
+        width:100%
+    }
+    #pagetop-a:hover {
+        background-color: #c4f4d2;
+    }
+}
